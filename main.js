@@ -1,12 +1,14 @@
 var video = "";
+var status= "";
+var object= "";
 var objects= [];
-function preload() {
-    video = createVideo('video.mp4');
-}
+
 
 function setup() {
     canvas = createCanvas(400, 400);
     canvas.center();
+    video=createCapture(VIDEO);
+    video.size(400,400);
     video.hide();
 }
 
@@ -35,10 +37,11 @@ function draw() {
 function startfunction() {
     objectDetector = ml5.objectDetector('cocossd', modelloaded);
     document.getElementById("status").innerHTML = "Status: Detecting Objects";
+    object= objectinput.get()
 }
 
 function modelloaded() {
-    console.log("Welcome!!:))):(((Meh");
+    console.log("You're At the Right Place");
     status = true;
     video.loop();
     video.speed(1);
